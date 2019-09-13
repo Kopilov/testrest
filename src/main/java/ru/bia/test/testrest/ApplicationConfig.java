@@ -29,10 +29,10 @@ public class ApplicationConfig extends Application {
          */
         private void addRestResourceClasses(Set<Class<?>> resources) {
             resources.add(ru.bia.test.testrest.Rest.class);
-//            resources.add(org.glassfish.json.jaxrs.JsonStructureBodyReader.class);
-  //          resources.add(org.glassfish.json.jaxrs.JsonStructureBodyWriter.class);
-            //resources.add(JacksonJsonProvider.class);
+            resources.add(ru.bia.test.testrest.JsonbResource.class);
+            resources.add(ru.bia.test.testrest.JsonbResourceInt.class);
             resources.add(JacksonFeature.class);
+            resources.add(MyParamConverterProvider.class);
         }
 
 
