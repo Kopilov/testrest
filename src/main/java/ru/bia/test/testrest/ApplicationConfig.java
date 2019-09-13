@@ -1,16 +1,18 @@
 package ru.bia.test.testrest;
 
+import org.glassfish.jersey.jackson.JacksonFeature;
+import org.glassfish.jersey.jackson.internal.jackson.jaxrs.json.JacksonJsonProvider;
+
 import java.util.Set;
 import javax.ws.rs.core.Application;
 
-public class ApplicatiovConfig {
+@javax.ws.rs.ApplicationPath("webresources")
+public class ApplicationConfig extends Application {
 
     /**
      *
      * @author aleksandr
      */
-    @javax.ws.rs.ApplicationPath("webresources")
-    public class ApplicationConfig extends Application {
 
         @Override
         public Set<Class<?>> getClasses() {
@@ -29,7 +31,9 @@ public class ApplicatiovConfig {
             resources.add(ru.bia.test.testrest.Rest.class);
 //            resources.add(org.glassfish.json.jaxrs.JsonStructureBodyReader.class);
   //          resources.add(org.glassfish.json.jaxrs.JsonStructureBodyWriter.class);
+            //resources.add(JacksonJsonProvider.class);
+            resources.add(JacksonFeature.class);
         }
 
-    }
+
 }
