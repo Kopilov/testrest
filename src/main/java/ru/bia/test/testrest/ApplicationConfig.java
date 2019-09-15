@@ -1,39 +1,19 @@
 package ru.bia.test.testrest;
 
 import org.glassfish.jersey.jackson.JacksonFeature;
-import org.glassfish.jersey.jackson.internal.jackson.jaxrs.json.JacksonJsonProvider;
+import org.glassfish.jersey.server.ResourceConfig;
 
-import java.util.Set;
-import javax.ws.rs.core.Application;
 
-@javax.ws.rs.ApplicationPath("webresources")
-public class ApplicationConfig extends Application {
+public class ApplicationConfig extends ResourceConfig {
 
-    /**
-     *
-     * @author aleksandr
-     */
-
-        @Override
-        public Set<Class<?>> getClasses() {
-            Set<Class<?>> resources = new java.util.HashSet<>();
-            addRestResourceClasses(resources);
-            return resources;
-        }
-
-        /**
-         * Do not modify addRestResourceClasses() method.
-         * It is automatically populated with
-         * all resources defined in the project.
-         * If required, comment out calling this method in getClasses().
-         */
-        private void addRestResourceClasses(Set<Class<?>> resources) {
-            resources.add(ru.bia.test.testrest.Rest.class);
-            resources.add(ru.bia.test.testrest.JsonbResource.class);
-            resources.add(ru.bia.test.testrest.JsonbResourceInt.class);
-            resources.add(JacksonFeature.class);
-            resources.add(MyParamConverterProvider.class);
-        }
+    public ApplicationConfig() {
+        super(ru.bia.test.testrest.Rest.class,
+                ru.bia.test.testrest.JsonbResource.class,
+                ru.bia.test.testrest.JsonbResourceInt.class,
+                JacksonFeature.class,
+                MyParamConverterProvider.class);
+    }
 
 
 }
+
