@@ -4,14 +4,19 @@ import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 
 
+/**
+ * Jersey resources list loaded on Grizzly startup
+ */
 public class ApplicationConfig extends ResourceConfig {
 
     public ApplicationConfig() {
-        super(ru.bia.test.testrest.Rest.class,
-                ru.bia.test.testrest.JsonbResource.class,
-                ru.bia.test.testrest.JsonbResourceInt.class,
+        super(
+                Rest.class,
+                JsonbResource.class,
+                JsonbResourceInt.class,
                 JacksonFeature.class,
-                MyParamConverterProvider.class);
+                MyParamConverterProvider.class
+        );
     }
 
 

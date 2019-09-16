@@ -18,15 +18,12 @@ public class Rest {
         return "1,2,3\n";
     }
 
-    @Path("add")
     @GET
     @Produces("application/json")
     public Integer[] getJson(
         @QueryParam("ag") Ints ag
     ) throws IOException {
 
-        //Jsonb jsonb = JsonbBuilder.create();
-//
         System.out.println(ag.toString());
 
         for (Integer i: ag.iii) {

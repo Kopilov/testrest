@@ -6,9 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * An example resource utilizing JSONB.
+ * An example resource utilizing JSONB with array of primitives.
  *
- * @author Adam Lindenthal (adam.lindenthal at oracle.com)
  */
 @Path("ints")
 @Consumes("application/json")
